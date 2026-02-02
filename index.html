@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerlo - Train Your Brain Daily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #EFE8DC;
+            --dark: #1A1A1A;
+            --gold: #FDB924;
+            --blue: #87CEEB;
+            --gray: #6B6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--dark);
+            background: var(--beige);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(239, 232, 220, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-cta {
+            background: var(--dark);
+            color: var(--beige);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--dark);
+            color: var(--beige);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(26, 26, 26, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: var(--beige);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.2s ease 0.3s both;
+        }
+
+        .phone-stack {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .phone-stack img {
+            width: 260px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .phone-1,
+        .phone-2,
+        .phone-3 {
+            position: relative;
+        }
+
+        .phone-stack img:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 40px 80px rgba(26, 26, 26, 0.3);
+            z-index: 10;
+        }
+
+        /* Decorative element */
+        .blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--gold), var(--blue));
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .blob-1 {
+            top: -100px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -10s;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #F5F0E8 0%, #EFE8DC 100%);
+            color: var(--dark);
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features .section-header h2 {
+            color: var(--dark);
+        }
+
+        .features .section-subtitle {
+            color: var(--gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .features-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 0 80px;
+        }
+
+        .features-slider {
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+        }
+
+        .feature-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4rem;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .feature-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+        }
+
+        .feature-slide.prev {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .carousel-nav:hover {
+            background: var(--dark);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 0;
+        }
+
+        .carousel-next {
+            right: 0;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 3rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(26, 26, 26, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot:hover {
+            background: rgba(26, 26, 26, 0.4);
+        }
+
+        .dot.active {
+            background: var(--gold);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .feature-slide .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .feature-slide h3 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-slide p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Science Section */
+        .science {
+            padding: 8rem 5%;
+            background: var(--dark);
+            color: var(--beige);
+        }
+
+        .science-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .science .section-header h2 {
+            color: var(--beige);
+        }
+
+        .science .section-subtitle {
+            color: rgba(239, 232, 220, 0.7);
+        }
+
+        .numerlo-index {
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+
+        .index-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .index-card {
+            background: rgba(239, 232, 220, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+        }
+
+        .index-card h3 {
+            color: var(--beige);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .index-intro {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--beige);
+        }
+
+        .index-card p {
+            color: rgba(239, 232, 220, 0.8);
+            line-height: 1.8;
+        }
+
+        .index-screenshot {
+            position: relative;
+        }
+
+        .index-screenshot img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .research-card {
+            background: rgba(239, 232, 220, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(239, 232, 220, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            background: rgba(239, 232, 220, 0.08);
+            border-color: var(--gold);
+        }
+
+        .research-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .research-card h3 {
+            color: var(--beige);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-card p {
+            color: rgba(239, 232, 220, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-source {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-source a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .research-source a:hover {
+            border-bottom-color: var(--gold);
+        }
+
+        .science-cta {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            text-align: center;
+        }
+
+        .science-conclusion {
+            font-size: 1.3rem;
+            color: var(--beige);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* Screenshots Showcase */
+        .showcase {
+            padding: 8rem 5%;
+            background: var(--dark);
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase .section-header h2 {
+            color: var(--beige);
+        }
+
+        .showcase .section-subtitle {
+            color: rgba(239, 232, 220, 0.7);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .screenshot-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(26, 26, 26, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.2);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 8rem 5%;
+            background: var(--beige);
+            text-align: center;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 2rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--gray);
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .app-store-badge img {
+            height: auto;
+            width: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(239, 232, 220, 0.7);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--beige);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(239, 232, 220, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(239, 232, 220, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .phone-stack {
+                flex-direction: column;
+                gap: 1rem;
+                max-width: 300px;
+            }
+
+            .phone-stack img {
+                width: 240px;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav-cta {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .features-carousel {
+                padding: 0 60px;
+            }
+
+            .feature-slide {
+                padding: 2.5rem 1.5rem;
+                min-height: 300px;
+            }
+
+            .feature-slide h3 {
+                font-size: 1.5rem;
+            }
+
+            .feature-slide p {
+                font-size: 1rem;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .coming-soon-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .index-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .index-screenshot img {
+                max-width: 280px;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+            }
+        }
+
+        @media (min-width: 969px) and (max-width: 1200px) {
+            .phone-stack {
+                gap: 1rem;
+            }
+
+            .phone-stack img {
+                width: 220px;
+            }
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <img src="numerlo-icon.png" alt="Numerlo" class="logo-icon">
+            <span>numerlo</span>
+        </a>
+        <a href="#download" class="nav-cta">Download Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Train your brain <em style="font-style: italic;">daily</em></h1>
+                <p class="hero-tagline">Designed for thinkers.</p>
+                <p class="hero-description">
+                    Mental math makes you appear sharper. Build cognitive confidence with proven speed training. 
+                    From basic arithmetic to advanced professional calculations—practice that actually sticks.
+                </p>
+                <div class="cta-group">
+                    <a href="#download" class="btn-primary">
+                        Download Free
+                    </a>
+                    <a href="#features" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-stack">
+                    <img src="image1.jpg" alt="Numerlo Home Screen" class="phone-1">
+                    <img src="image2.jpg" alt="Numerlo Gameplay" class="phone-2">
+                    <img src="image3.jpg" alt="Numerlo Features" class="phone-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="science">
+        <div class="science-container">
+            <div class="section-header reveal">
+                <h2>The Science Behind Numerlo</h2>
+                <p class="section-subtitle">Your brain is neuroplastic. We help you rewire it.</p>
+            </div>
+            
+            <div class="numerlo-index reveal">
+                <div class="index-content">
+                    <div class="index-card">
+                        <h3>The Numerlo Index (NI)</h3>
+                        <p class="index-intro">Think of it like an IQ score, but for your <strong>mathematical neural capacity</strong>. It's backed by real neuroscience.</p>
+                        <p>Your NI tracks how your brain's mathematical processing power evolves with consistent practice. It's not just about getting answers right—it's about building stronger neural pathways.</p>
+                    </div>
+                    <div class="index-screenshot">
+                        <img src="numerlo-index-screen.png" alt="Numerlo Index in App">
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card reveal">
+                    <div class="research-number">01</div>
+                    <h3>Math Practice Creates Brain Growth</h3>
+                    <p>Studies show that consistent mathematical practice induces significant neural changes in brain regions associated with numerical processing. Just 8 weeks of targeted cognitive training causes widespread neuroplasticity in the brain.</p>
+                    <div class="research-source">
+                        <a href="https://www.nature.com/articles/ncomms9453" target="_blank" rel="noopener">Nature Communications</a>, 
+                        <a href="https://rsisinternational.org/journals/ijriss/articles/mathematics-learning-through-the-lens-of-neuroplasticity-a-researchers-perspective/" target="_blank" rel="noopener">RSIS International</a>
+                    </div>
+                </div>
+
+                <div class="research-card reveal">
+                    <div class="research-number">02</div>
+                    <h3>Daily Practice = Stronger Neural Pathways</h3>
+                    <p>When you perform mathematical tasks repeatedly, neurons fire together and strengthen their connections. This increases brain plasticity and improves memory, reasoning, and problem-solving abilities.</p>
+                    <div class="research-source">
+                        <a href="https://fountainmagazine.com/all-issues/2023/issue-156-nov-dec-2023/your-brain-will-thank-you-for-learning-math" target="_blank" rel="noopener">The Fountain Magazine</a>
+                    </div>
+                </div>
+
+                <div class="research-card reveal">
+                    <div class="research-number">03</div>
+                    <h3>Spacing Effect = Better Memory</h3>
+                    <p>Spaced training—daily practice with intervals—leads to more robust memory formation than cramming. Optimal intervals range from hours to days between practice sessions, which is exactly how Numerlo is designed.</p>
+                    <div class="research-source">
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5126970/" target="_blank" rel="noopener">PubMed Central</a>
+                    </div>
+                </div>
+
+                <div class="research-card reveal">
+                    <div class="research-number">04</div>
+                    <h3>Missing Practice = Neural Decay</h3>
+                    <p>Studies found that people who stopped math practice showed decreased brain activity in regions critical for mathematical learning. Lack of practice affects brain plasticity—use it or lose it is real.</p>
+                    <div class="research-source">
+                        <a href="https://www.pnas.org/doi/10.1073/pnas.2013155118" target="_blank" rel="noopener">PNAS</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="science-cta reveal">
+                <p class="science-conclusion">Your Numerlo Index increases as your brain rewires itself through consistent practice. Track your neural growth in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-header reveal">
+                <h2>Smart design. Smarter results.</h2>
+                <p class="section-subtitle">Crafted by a Numbers Professional</p>
+            </div>
+            
+            <div class="features-carousel">
+                <button class="carousel-nav carousel-prev" aria-label="Previous feature">‹</button>
+                <button class="carousel-nav carousel-next" aria-label="Next feature">›</button>
+                
+                <div class="features-slider">
+                    <div class="feature-slide active">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Speed-Based Training</h3>
+                        <p>Force automaticity through time pressure. Your brain learns to retrieve answers from memory instead of calculating consciously—how true fluency develops.</p>
+                    </div>
+                    
+                    <div class="feature-slide">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Progressive Difficulty</h3>
+                        <p>From basic arithmetic to calculus, actuarial science, and engineering problems. Every level designed to build genuine skill, not just confidence.</p>
+                    </div>
+                    
+                    <div class="feature-slide">
+                        <span class="feature-icon">📊</span>
+                        <h3>Track Your Progress</h3>
+                        <p>Charts and streaks that reveal improvement patterns. See exactly where you're growing and identify areas for targeted practice.</p>
+                    </div>
+                    
+                    <div class="feature-slide">
+                        <span class="feature-icon">🌍</span>
+                        <h3>8 Languages</h3>
+                        <p>Practice in English, Spanish, German, French, Chinese, Japanese, Korean, and more. Mental math transcends language barriers.</p>
+                    </div>
+                    
+                    <div class="feature-slide">
+                        <span class="feature-icon">🏆</span>
+                        <div class="coming-soon-badge">Coming Soon</div>
+                        <h3>Global Leaderboards</h3>
+                        <p>Compete globally and regionally. Track your rank among thousands of users worldwide or in your own country.</p>
+                    </div>
+                    
+                    <div class="feature-slide">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Privacy First</h3>
+                        <p>Zero data collection. No analytics. No tracking. Your practice stays on your device, period.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Showcase -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="section-header reveal">
+                <h2>Experience Numerlo</h2>
+                <p class="section-subtitle">Practice a little. Level up your mind.</p>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-card reveal">
+                    <img src="image5.jpg" alt="Advanced Practice Modes" id="screen1">
+                </div>
+                <div class="screenshot-card reveal">
+                    <img src="image6.jpg" alt="Expert Challenges" id="screen2">
+                </div>
+                <div class="screenshot-card reveal">
+                    <img src="image7.jpg" alt="Professional Applications" id="screen3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="download">
+        <div class="final-cta-container reveal">
+            <h2>Build. Boost. Brilliance.</h2>
+            <p>
+                You can't fake mental math. Either you can calculate quickly or you can't. 
+                And that honest signal of cognitive sharpness influences how others perceive you.
+            </p>
+            <p>Download Numerlo. Practice consistently. Build an advantage that compounds for life.</p>
+            <a href="#" class="app-store-badge">
+                <img src="app-store-badge.png" alt="Download on the App Store">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Numerlo</h4>
+                <p>Mental math training designed for professionals, students, and lifelong learners.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="https://nlstartups0502.github.io/numerlo_math_trainer/privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://nlstartups0502.github.io/numerlo_math_trainer/terms.html">Terms of Service</a></li>
+                    <li><a href="https://nlstartups0502.github.io/numerlo_math_trainer/docs/support.html">Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Numerlo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        function revealOnScroll() {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Features Carousel
+        const slides = document.querySelectorAll('.feature-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        let currentSlide = 0;
+        let autoPlayInterval;
+
+        function showSlide(n) {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'prev');
+            });
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Wrap around if needed
+            if (n >= slides.length) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = n;
+            }
+
+            // Add active class to current slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            const prevSlideIndex = currentSlide;
+            showSlide(currentSlide + 1);
+            slides[prevSlideIndex].classList.add('prev');
+        }
+
+        function prevSlide() {
+            const prevSlideIndex = currentSlide;
+            showSlide(currentSlide - 1);
+            slides[prevSlideIndex].classList.add('prev');
+        }
+
+        // Auto-advance every 5 seconds
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Manual navigation
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay(); // Restart timer
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay(); // Restart timer
+        });
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                stopAutoPlay();
+                startAutoPlay(); // Restart timer
+            });
+        });
+
+        // Pause on hover
+        const carousel = document.querySelector('.features-carousel');
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        // Start autoplay
+        startAutoPlay();
+    </script>
+</body>
+</html>
