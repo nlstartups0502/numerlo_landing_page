@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Numerlo Math Trainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #EFE8DC;
+            --dark: #1A1A1A;
+            --gold: #FDB924;
+            --blue: #87CEEB;
+            --gray: #6B6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--beige);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(239, 232, 220, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .back-link {
+            background: var(--dark);
+            color: var(--beige);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10rem 5% 4rem;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Icon */
+        .icon {
+            font-size: 4rem;
+            text-align: center;
+            margin: 0 0 2rem 0;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: rgba(253, 185, 36, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .contact-box h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .contact-email {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .contact-email a {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-email a:hover {
+            color: var(--dark);
+            text-decoration: underline;
+        }
+
+        .response-time {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        /* FAQ Items */
+        .faq {
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(135, 206, 235, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .faq-item h3 {
+            color: var(--dark);
+        }
+
+        .faq-item p {
+            margin: 1rem 0;
+        }
+
+        /* Resources */
+        .resources {
+            background: rgba(253, 185, 36, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .resources h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .resources a {
+            display: block;
+            color: var(--gold);
+            text-decoration: none;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .resources a:hover {
+            background: rgba(253, 185, 36, 0.1);
+            transform: translateX(5px);
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 8rem 5% 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Numerlo</a>
+        <a href="/" class="back-link">Back to Home</a>
+    </nav>
+
+    <div class="container">
+        <div class="icon">📧</div>
+        <h1>Support & Help</h1>
+        <p class="subtitle">We're here to help you get the most out of Numerlo</p>
+
+        <div class="contact-box">
+            <h2>Need Help? Contact Us</h2>
+            <p>Have a question, found a bug, or need assistance? We're happy to help!</p>
+            
+            <div class="contact-email">
+                <p><strong>Email us at:</strong><br>
+                <a href="mailto:freelance.actuary.nl@gmail.com">freelance.actuary.nl@gmail.com</a></p>
+            </div>
+            
+            <div class="response-time">
+                ⏱️ We typically respond within 24 hours (usually much faster!)
+            </div>
+        </div>
+
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>🔄 How do I cancel my subscription?</h3>
+                <p>Canceling is easy and can be done directly through your iPhone:</p>
+                <ol>
+                    <li>Open the <strong>Settings</strong> app on your iPhone</li>
+                    <li>Tap your name at the very top</li>
+                    <li>Tap <strong>"Subscriptions"</strong></li>
+                    <li>Find and tap <strong>"Numerlo"</strong></li>
+                    <li>Tap <strong>"Cancel Subscription"</strong></li>
+                </ol>
+                <p><strong>Note:</strong> You'll keep Premium access until the end of your current billing period.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>💳 How do I get a refund?</h3>
+                <p>All refund requests are handled directly by Apple (since they process all payments). Here's how to request one:</p>
+                <ol>
+                    <li>Visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a></li>
+                    <li>Sign in with your Apple ID</li>
+                    <li>Find your Numerlo purchase</li>
+                    <li>Click "Report a Problem"</li>
+                    <li>Select your reason and submit</li>
+                </ol>
+                <p>Apple usually processes refund requests within 48 hours.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🔓 How do I restore my purchase?</h3>
+                <p>Your Premium subscription is automatically linked to your Apple ID. To restore:</p>
+                <ol>
+                    <li>Make sure you're signed in with the same Apple ID you used to subscribe</li>
+                    <li>Delete and reinstall Numerlo (if needed)</li>
+                    <li>Open the app</li>
+                    <li>Your Premium access should restore automatically</li>
+                </ol>
+                <p><strong>Still not working?</strong> Make sure you have an internet connection, then close and reopen the app.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>❌ I subscribed but I'm still seeing the free tier. Why?</h3>
+                <p>This usually happens because the app needs to verify your subscription with Apple. Try these steps:</p>
+                <ol>
+                    <li>Make sure you're connected to the internet (WiFi or cellular)</li>
+                    <li>Close the app completely (swipe up from bottom, swipe Numerlo away)</li>
+                    <li>Wait 10 seconds</li>
+                    <li>Reopen Numerlo</li>
+                </ol>
+                <p>The app should now recognize your Premium subscription. If not, contact us!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>📊 How does the free tier work?</h3>
+                <p><strong>Free Version:</strong></p>
+                <ul>
+                    <li>3 games per day</li>
+                    <li>Resets at midnight (your local time)</li>
+                    <li>Basic features and gameplay</li>
+                    <li>All math operations included</li>
+                </ul>
+                <p><strong>Premium Version:</strong></p>
+                <ul>
+                    <li>Unlimited games daily</li>
+                    <li>Advanced progress tracking</li>
+                    <li>Detailed statistics and analytics</li>
+                    <li>Practice modes</li>
+                    <li>All future features</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>🔒 Is my data private and secure?</h3>
+                <p>Yes! We take privacy seriously:</p>
+                <ul>
+                    <li><strong>No data collection:</strong> We don't collect any personal information</li>
+                    <li><strong>No tracking:</strong> We don't track what you do in the app</li>
+                    <li><strong>Local storage:</strong> All your progress stays on your device</li>
+                    <li><strong>No ads:</strong> We don't show ads or share data with advertisers</li>
+                </ul>
+                <p>Read our full <a href="privacy.html">Privacy Policy</a> for details.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>📶 Can I use Numerlo offline?</h3>
+                <p><strong>Yes!</strong> Games work completely offline - no internet required for playing.</p>
+                <p><strong>However:</strong> The app needs internet connection when launching to verify your subscription status (Premium vs Free). This is a one-time check per session.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🔄 Will my progress sync across devices?</h3>
+                <p>Currently, progress is stored locally on each device (no cloud sync).</p>
+                <p><strong>Your subscription</strong> does sync across devices (via your Apple ID), so you can use Premium on your iPhone and iPad with the same subscription.</p>
+                <p>But your game scores, streaks, and statistics stay on the device where you played.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🎁 How does the free trial work?</h3>
+                <p>New users get a free trial of Premium features:</p>
+                <ul>
+                    <li>Full access to all Premium features</li>
+                    <li>Trial duration displayed at sign-up</li>
+                    <li>Cancel anytime during the trial - you won't be charged</li>
+                    <li>If you don't cancel, you'll be charged after the trial ends</li>
+                    <li>One trial per Apple ID</li>
+                </ul>
+                <p>To cancel before being charged, follow the cancellation steps above at least 24 hours before the trial ends.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🐛 I found a bug. How do I report it?</h3>
+                <p>We appreciate bug reports! Please email us at:</p>
+                <p><strong><a href="mailto:freelance.actuary.nl@gmail.com">freelance.actuary.nl@gmail.com</a></strong></p>
+                <p>Please include:</p>
+                <ul>
+                    <li>Your iPhone model (e.g., "iPhone 14 Pro")</li>
+                    <li>iOS version (e.g., "iOS 17.2")</li>
+                    <li>What happened (the bug/issue)</li>
+                    <li>What you were doing when it happened</li>
+                    <li>Screenshots if possible</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>💡 I have a feature request!</h3>
+                <p>We love hearing ideas from users! Email us at:</p>
+                <p><strong><a href="mailto:freelance.actuary.nl@gmail.com">freelance.actuary.nl@gmail.com</a></strong></p>
+                <p>Tell us what feature you'd like to see and why it would be useful. We read every suggestion!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>📱 What devices are supported?</h3>
+                <p>Numerlo requires:</p>
+                <ul>
+                    <li>iPhone running iOS 13.0 or later</li>
+                    <li>iPad running iPadOS 13.0 or later</li>
+                </ul>
+                <p>The app works best on newer devices, but should run smoothly on any device from iPhone 6S onwards.</p>
+            </div>
+        </div>
+
+        <div class="resources">
+            <h2>Other Resources</h2>
+            <a href="/">🏠 Back to Home</a>
+            <a href="privacy.html">🔒 Privacy Policy</a>
+            <a href="terms.html">📄 Terms of Service</a>
+        </div>
+
+        <div class="contact-box">
+            <h2>Still Have Questions?</h2>
+            <p>If you didn't find what you were looking for, don't hesitate to reach out!</p>
+            <div class="contact-email">
+                <p><a href="mailto:freelance.actuary.nl@gmail.com">📧 Email Us</a></p>
+            </div>
+            <p style="text-align: center; color: var(--gray); margin-top: 1.5rem;">
+                We're a small team and we read every email. You'll get a real human response, not an automated reply.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
