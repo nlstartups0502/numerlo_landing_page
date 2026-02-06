@@ -704,6 +704,22 @@
             font-size: 0.9rem;
         }
 
+        /* Scroll hint for mobile */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 968px) {
+            .scroll-hint {
+                display: block;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -745,14 +761,32 @@
                 justify-content: center;
             }
 
+            /* Horizontal scroll for phone screenshots on mobile */
             .phone-stack {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
-                max-width: 300px;
+                max-width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem 0;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE/Edge */
+                justify-content: flex-start;
+                margin: 0 -5%; /* Extend to screen edges */
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .phone-stack::-webkit-scrollbar {
+                display: none; /* Chrome/Safari */
             }
 
             .phone-stack img {
-                width: 240px;
+                width: 200px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
             }
 
             nav {
@@ -810,9 +844,30 @@
                 max-width: 280px;
             }
 
+            /* Horizontal scroll for screenshot showcase on mobile */
             .screenshots-grid {
-                grid-template-columns: 1fr;
-                max-width: 280px;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+                margin: 4rem -5% 0 -5%; /* Extend to screen edges */
+                padding: 1rem 5%;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .screenshots-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .screenshot-card {
+                flex-shrink: 0;
+                width: 220px;
+                scroll-snap-align: center;
             }
         }
 
@@ -870,10 +925,11 @@
             </div>
             <div class="hero-image">
                 <div class="phone-stack">
-                    <img src="numerlo1.jpg" alt="Numerlo Home Screen" class="phone-1">
-                    <img src="numerlo2.jpg" alt="Numerlo Gameplay" class="phone-2">
-                    <img src="numerlo3.jpg" alt="Numerlo Features" class="phone-3">
+                    <img src="image1.jpg" alt="Numerlo Home Screen" class="phone-1">
+                    <img src="image2.jpg" alt="Numerlo Gameplay" class="phone-2">
+                    <img src="image3.jpg" alt="Numerlo Features" class="phone-3">
                 </div>
+                <p class="scroll-hint">← Swipe to explore →</p>
             </div>
         </div>
     </section>
@@ -1016,15 +1072,16 @@
             </div>
             <div class="screenshots-grid">
                 <div class="screenshot-card reveal">
-                    <img src="numerlo5.jpg" alt="Advanced Practice Modes" id="screen1">
+                    <img src="image5.jpg" alt="Advanced Practice Modes" id="screen1">
                 </div>
                 <div class="screenshot-card reveal">
-                    <img src="numerlo6.jpg" alt="Expert Challenges" id="screen2">
+                    <img src="image6.jpg" alt="Expert Challenges" id="screen2">
                 </div>
                 <div class="screenshot-card reveal">
-                    <img src="numerlo7.jpg" alt="Professional Applications" id="screen3">
+                    <img src="image7.jpg" alt="Professional Applications" id="screen3">
                 </div>
             </div>
+            <p class="scroll-hint">← Swipe to see more →</p>
         </div>
     </section>
 
