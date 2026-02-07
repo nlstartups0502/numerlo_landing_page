@@ -35,6 +35,13 @@
             background: var(--beige);
             overflow-x: hidden;
             line-height: 1.6;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
         }
 
         /* Typography */
@@ -114,6 +121,7 @@
             padding: 8rem 5% 4rem;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .hero-content {
@@ -193,6 +201,8 @@
         .hero-image {
             position: relative;
             animation: fadeIn 1.2s ease 0.3s both;
+            width: 100%;
+            overflow: hidden;
         }
 
         .phone-stack {
@@ -577,6 +587,8 @@
         .showcase {
             padding: 8rem 5%;
             background: var(--dark);
+            width: 100%;
+            overflow: hidden;
         }
 
         .showcase-container {
@@ -770,13 +782,10 @@
                 overflow-y: hidden;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
-                padding: 1rem 0;
+                padding: 1rem 1rem;
                 scrollbar-width: none; /* Firefox */
                 -ms-overflow-style: none; /* IE/Edge */
                 justify-content: flex-start;
-                margin: 0 -5%; /* Extend to screen edges */
-                padding-left: 5%;
-                padding-right: 5%;
             }
 
             .phone-stack::-webkit-scrollbar {
@@ -854,8 +863,8 @@
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
                 max-width: 100%;
-                margin: 4rem -5% 0 -5%; /* Extend to screen edges */
-                padding: 1rem 5%;
+                margin-top: 4rem;
+                padding: 1rem 1rem;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
             }
